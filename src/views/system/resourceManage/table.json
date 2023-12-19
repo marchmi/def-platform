@@ -1,0 +1,76 @@
+{
+  "fields": {
+    "uuid": {
+      "type": "input",
+      "label": "UUID"
+    },
+    "resourceName": { 
+      "type": "input",
+      "label": "资源名称",
+      "require": true
+    },
+    "resourceCode": { 
+      "type": "input",
+      "label": "资源CODE",
+      "require": true
+    },
+    "parentResource": { 
+      "type": "input",
+      "label": "父资源CODE",
+      "require": true
+    },
+    "uris": { 
+      "type": "select",
+      "label": "接口信息",
+      "format": "formatEnumVal",
+      "props": {
+        "multiple": true
+      }
+    },
+    "type": { 
+      "type": "select",
+      "label": "资源类型",
+      "require": true
+    },
+    "remark": {
+      "type": "textarea",
+      "label": "备注"
+    },
+    "createdAt": {
+      "type": "datePicker",
+      "label": "创建时间",
+      "format": "formatDate",
+      "props": {
+        "disabled": true
+      }
+    },
+    "updatedAt": {
+      "type": "datePicker",
+      "label": "更新时间",
+      "format": "formatDate",
+      "props": {
+        "disabled": true
+      }
+    }
+  },
+  "table": [
+    "uuid",
+    "resourceName",
+    "resourceCode",
+    "type",
+    "uris",
+    "remark"
+  ],
+  "form": [
+    "type",
+    "resourceName",
+    "resourceCode",
+    "uris",
+    "remark"
+  ],
+  "filter": [
+  ],
+  "options": {
+    "type": [ "MENU&MENU", "BUTTON&BUTTON" ]
+  }
+}
