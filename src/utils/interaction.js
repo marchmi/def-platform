@@ -47,7 +47,7 @@ export const errorMsg = (msg, attrs = {}) => {
  * @param {*} msg 反馈消息
  * @param {*} attrs 其它设置
  */
- export const warningMsg = (msg, attrs = {}) => {
+ export const warnMsg = (msg, attrs = {}) => {
   ElMessage({
     message: msg,
     grouping: true,

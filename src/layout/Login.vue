@@ -60,7 +60,6 @@ export default {
       login.value.validate((valid) => {
         if (valid) {
           loginRequest(param).then(res => {
-            console.log(res)
             const data = res
             setToken(data.tokenHead + data.token)
             ElMessage.success('登录成功')

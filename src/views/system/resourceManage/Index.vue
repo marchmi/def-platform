@@ -6,6 +6,7 @@
       </mi-tabs>
       <div class="page-header-operate-wrap">
         <m-operation
+          v-show="!tableData.length"
           :operations="headerOperations"
         >
         </m-operation>
@@ -85,6 +86,21 @@
     tableColumn: tableColumn,
     operations: [
       {
+        label: '添加子资源',
+        handler: (row) => {
+          formDialog.title = `新增${row.resourceName}子资源`
+          formDialog.formAttrs.dataFormParams = { parentResource: row.resourceCode, type: 'MENU', resourceCode: row.resourceCode }
+          type.value = 'add'
+          formDialog.toggleDialogVisible()
+        },
+        disabled: (row) => {
+          return row.type === 'BUTTON'
+        },
+        props: {
+          link: true
+        }
+      },
+      {
         label: '编辑',
         handler: (row) => {
           formDialog.title = '编辑资源'
@@ -98,6 +114,9 @@
       },
       {
         label: '删除',
+        disabled: (row) => {
+          return row.parentResource === sysCode.value
+        },
         handler: (row) => {
           confirm().then(() => {
             deleteOne(row.uuid).then(res => {
@@ -112,7 +131,8 @@
       }
     ],
     attrs: {
-      fixedOperationColumn: 'right'
+      fixedOperationColumn: 'right',
+     'row-key': "uuid"
     }
   }))
 

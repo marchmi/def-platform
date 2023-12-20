@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, onMounted, watch } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { getTextWidth } from '@/utils/elAutoWidthUtil'
 const usePopoverView = ref(false)
 const poverWidth = ref(-1)

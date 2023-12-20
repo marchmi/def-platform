@@ -54,7 +54,6 @@
     }
   },
   "table": [
-    "uuid",
     "resourceName",
     "resourceCode",
     "type",
