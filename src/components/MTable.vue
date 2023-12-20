@@ -10,7 +10,7 @@
     <mi-table-column v-if="attrs.useSelection" type="selection" width="55" />
     <!-- 设置了width属性时，min-width属性会失效 -->
     <mi-table-column
-      v-for="(field) in columns"
+      v-for="(field, index) in columns"
       :key="field.key"
       :prop="field.key"
       :label="field.label"
@@ -46,6 +46,10 @@
         <!-- 使用插槽进行渲染 -->
         <template v-else-if="$slots[field.key]">
           <slot :name="field.key" :row="row"></slot>
+        </template>
+         <!-- 是树形表格时使用span标签渲染数据 -->
+        <template v-else-if="row.children && !index">
+          <span>{{formatValue(row[field.key], field.format, field)}}</span>
         </template>
         <!-- 有需要时，这里补充使用视图组件加载器加载视图的逻辑 -->
         <!-- 直接展示 -->
