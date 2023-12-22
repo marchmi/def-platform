@@ -1,0 +1,61 @@
+{
+  "fields": {
+    "uuid": {
+      "type": "input",
+      "label": "UUID"
+    },
+    "sysName": { 
+      "type": "input",
+      "label": "系统名称",
+      "require": true
+    },
+    "sysCode": { 
+      "type": "input",
+      "label": "系统CODE",
+      "require": true
+    },
+    "remark": {
+      "type": "textarea",
+      "label": "备注"
+    },
+    "createdAt": {
+      "type": "datePicker",
+      "label": "创建时间",
+      "format": "formatDate",
+      "props": {
+        "disabled": true
+      }
+    },
+    "updatedAt": {
+      "type": "datePicker",
+      "label": "更新时间",
+      "format": "formatDate",
+      "props": {
+        "disabled": true
+      }
+    },
+    "keyword": {
+      "type": "input",
+      "label": "CODE或名称",
+      "props": {
+        "placeholder": "请输入CODE或名称搜索"
+      }
+    }
+  },
+  "table": [
+    "uuid",
+    "sysName",
+    "sysCode",
+    "remark",
+    "createdAt",
+    "updatedAt"
+  ],
+  "form": [
+    "sysName",
+    "sysCode",
+    "remark"
+  ],
+  "filter": [
+    "keyword"
+  ]
+}

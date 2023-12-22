@@ -1,0 +1,67 @@
+{
+  "fields": {
+    "uuid": {
+      "type": "input",
+      "label": "UUID"
+    },
+    "dictName": { 
+      "type": "input",
+      "label": "字典名称",
+      "require": true
+    },
+    "dictCode": { 
+      "type": "input",
+      "label": "字典CODE",
+      "require": true
+    },
+    "dictValue": {
+      "type": "textarea",
+      "label": "字典值"
+    },
+    "remark": {
+      "type": "textarea",
+      "label": "备注"
+    },
+    "createdAt": {
+      "type": "datePicker",
+      "label": "创建时间",
+      "format": "formatDate",
+      "props": {
+        "disabled": true
+      }
+    },
+    "updatedAt": {
+      "type": "datePicker",
+      "label": "更新时间",
+      "format": "formatDate",
+      "props": {
+        "disabled": true
+      }
+    },
+    "keyword": {
+      "type": "input",
+      "label": "CODE或名称",
+      "props": {
+        "placeholder": "请输入CODE或名称搜索"
+      }
+    }
+  },
+  "table": [
+    "uuid",
+    "dictName",
+    "dictCode",
+    "dictValue",
+    "remark",
+    "createdAt",
+    "updatedAt"
+  ],
+  "form": [
+    "dictName",
+    "dictCode",
+    "dictValue",
+    "remark"
+  ],
+  "filter": [
+    "keyword"
+  ]
+}

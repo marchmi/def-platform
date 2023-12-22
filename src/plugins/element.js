@@ -43,7 +43,8 @@
   ElCard,
   ElPopover,
   ElTabs,
-  ElTabPane
+  ElTabPane,
+  ElTree
 } from 'element-plus'
 import 'element-plus/dist/index.css'
 
@@ -86,7 +87,8 @@ const coms = [
   ElCard,
   ElPopover,
   ElTabs,
-  ElTabPane
+  ElTabPane,
+  ElTree
 ]
 
 export default (app) => {

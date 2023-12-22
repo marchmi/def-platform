@@ -14,6 +14,10 @@
   'sysManage', // 系统管理
   'interfaceManage', // 接口资源
   'resourceManage', // 资源管理
+  'dictManage', // 数据字典,
+  'accunt', // 角色账号管理
+  'roleManage', // 角色管理
+  'accountManage', // 账号管理
  ]
  
  // 需要和文件夹名称拼接name属性的文件名
@@ -31,4 +35,8 @@ export const RouteMenuTitles = {
   sysManage: '系统管理',
   interfaceManage: '接口资源',
   resourceManage: '资源管理',
+  dictManage: '数据字典',
+  account: '角色账号管理',
+  roleManage: '角色管理',
+  accountManage: '账号管理',
 }
