@@ -33,7 +33,7 @@
      return result || '-'
    }
    if(Array.isArray(enunStore[fieldInfo.key])) {
-     return enunStore[fieldInfo.key].find(i => i.key === value).value
+     return enunStore[fieldInfo.key].find(i => i.key === value)?.value
    }
    return enunStore[fieldInfo.key][value]
  }

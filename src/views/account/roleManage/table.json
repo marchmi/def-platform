@@ -4,14 +4,25 @@
       "type": "input",
       "label": "UUID"
     },
-    "sysName": { 
+    "roleName": { 
       "type": "input",
-      "label": "系统名称",
+      "label": "角色名称",
       "require": true
     },
     "sysCode": { 
-      "type": "input",
-      "label": "系统CODE",
+      "type": "select",
+      "label": "系统",
+      "format": "formatEnumVal",
+      "require": true
+    },
+    "type": { 
+      "type": "select",
+      "label": "角色类型",
+      "require": true
+    },
+    "resourceCodes": {
+      "type": "tree",
+      "label": "角色权限",
       "require": true
     },
     "remark": {
@@ -44,18 +55,25 @@
   },
   "table": [
     "uuid",
-    "sysName",
     "sysCode",
+    "type",
+    "roleName",
     "remark",
     "createdAt",
     "updatedAt"
   ],
   "form": [
-    "sysName",
     "sysCode",
-    "remark"
+    "type",
+    "roleName",
+    "remark",
+    "resourceCodes"
   ],
   "filter": [
-    "keyword"
-  ]
+    "keyword",
+    "sysCode"
+  ],
+  "options": {
+    "type": [ "ADMIN&管理员", "TENEMENT&用户" ]
+  }
 }

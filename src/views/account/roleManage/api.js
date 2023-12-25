@@ -1,6 +1,6 @@
 import { nodeServiceRequest } from '@/service/nodeService.js'
-const viewRequest = nodeServiceRequest('api', '/system')
-const commonRequest = nodeServiceRequest('common', '/system')
+const viewRequest = nodeServiceRequest('api', '/role')
+const commonRequest = nodeServiceRequest('common', '/role')
 
 export const fetchList = query => {
   return viewRequest({

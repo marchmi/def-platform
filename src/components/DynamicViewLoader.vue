@@ -41,6 +41,7 @@ const componentView = {
   imageUploader: defineAsyncComponent(()=>import('./async-components/imageUploader')),
   datePicker: defineAsyncComponent(()=>import('./async-components/datePicker')),
   ellipText: defineAsyncComponent(()=>import('./async-components/ellipText')),
+  tree: defineAsyncComponent(()=>import('./async-components/tree')),
   unRegister: defineAsyncComponent(()=>import('./async-components/unregister'))
 }
 

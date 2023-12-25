@@ -31,7 +31,7 @@
 </template>
 <script setup>
   import tableDef from './table.json'
-  import { ref, reactive, onMounted } from 'vue'
+  import { ref, reactive, onMounted, watchEffect } from 'vue'
   import { confirm, errorMsg, successMsg } from '@/utils/interaction'
 
   import AppMain from '@/components/AppMain' // 组件引入
@@ -51,6 +51,11 @@
   const { getTableFields, getFilterFields, getFormFields } = useTableDef(tableDef)
   
   import { fetchList, createOne, updateOne, deleteOne } from './api' // api引入
+  import { fetchList as fetchResources } from '@/views/system/resourceManage/api' // api引入
+  import useEnumStore from '@/store/modules/useEnumStore'
+
+  const enumStore = useEnumStore()
+  enumStore.fetchSysEnum()
 
   // 表格数据 分页器控制对象 搜索 重置搜索条件
   const { tableData, pagination, handleSearch, handleReset } = usePage(fetchList)
@@ -155,6 +160,14 @@
       },
     }
   }))
+
+  watchEffect(() => {
+    if(formDialog.formAttrs.dataFormParams.sysCode) {
+      fetchResources(formDialog.formAttrs.dataFormParams.sysCode).then(res => {
+       formDialog.formAttrs.formFields[4].props.options = res.list
+      })
+    }
+  })
 
 
   const type = ref('add') // add | edit
