@@ -48,7 +48,7 @@
   import useOperation from '@/components/hooks/useOperation'
   import useFormDialog from '@/components/hooks/useFormDialog'
   import useTableDef from '@/components/hooks/useTableDef'
-  const { getTableFields, getFilterFields, getFormFields } = useTableDef(tableDef)
+  const { getTableFields, getFilterFields, getFormFields, getItemRefer } = useTableDef(tableDef)
   
   import { fetchList, createOne, updateOne, deleteOne } from './api' // api引入
   import { fetchList as fetchResources } from '@/views/system/resourceManage/api' // api引入
@@ -160,11 +160,19 @@
       },
     }
   }))
+  const refer = getItemRefer(formDialog.formAttrs.formFields)
+  const resourceCodeMap = {}
 
   watchEffect(() => {
-    if(formDialog.formAttrs.dataFormParams.sysCode) {
-      fetchResources(formDialog.formAttrs.dataFormParams.sysCode).then(res => {
-       formDialog.formAttrs.formFields[4].props.options = res.list
+    const sysCode = formDialog.formAttrs.dataFormParams.sysCode
+    if(resourceCodeMap[sysCode]) {
+      refer.resourceCodes.props.options = resourceCodeMap[sysCode]
+      return
+    }
+    if(sysCode) {
+      fetchResources(sysCode).then(res => {
+       resourceCodeMap[sysCode] = res.list
+       refer.resourceCodes.props.options = resourceCodeMap[sysCode]
       })
     }
   })
@@ -175,14 +183,14 @@
   const handleSubmit = (formData, ref) => {
     ref.validate((valid, fields) => {
       if (valid) {
-        if(type.value==='add') {
+        if(type.value === 'add') {
           createOne({...formData}).then(res=>{
             successMsg(res.message)
             toggleFormDialogVisible(ref)
             handleSearch()
           })
         }else {
-          updateOne(formData.uuid,{...formData}).then(res=>{
+          updateOne(formData.uuid, { ...formData }).then(res=>{
             successMsg(res.message)
             toggleFormDialogVisible(ref)
             handleSearch()
