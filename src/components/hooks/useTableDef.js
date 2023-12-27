@@ -77,6 +77,18 @@ const useTableDef = (module = {}) => {
   }
 
   /**
+   * 获取深层元素的引用
+   * @param {*} items 
+   */
+  function getItemRefer (items) {
+    const rtn = {}
+    items.forEach( item => {
+      rtn[item.key] = item
+    })
+    return rtn
+  }
+
+  /**
    * 设置选项数据
    * @param {*} origin 
    * @param {*} value 
@@ -114,7 +126,8 @@ const useTableDef = (module = {}) => {
   return {
     getTableFields,
     getFilterFields,
-    getFormFields
+    getFormFields,
+    getItemRefer
   }
 }
 export default useTableDef
