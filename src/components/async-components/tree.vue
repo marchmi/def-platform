@@ -13,7 +13,7 @@
   </div>
 </template>
 <script setup>
-import { ref, watchEffect } from 'vue'
+import { ref, watchEffect, watch, nextTick } from 'vue'
   const treeRef = ref(null)
   const props = defineProps({
     data: {
@@ -28,13 +28,13 @@ import { ref, watchEffect } from 'vue'
         return {
           children: 'children',
           label: 'resourceName',
-          id: 'resourceCode'
+          resourceCode: 'resourceCode'
         }
       }
     },
     nodeKey: {
       type: String,
-      default: 'id',
+      default: 'resourceCode',
     },
     options: {
       type: [Array, Object],
@@ -45,11 +45,27 @@ import { ref, watchEffect } from 'vue'
   })
   
   const emit = defineEmits(['update:data'])
-  watchEffect(() => {
-    treeRef.value?.setCheckedNodes(props.data || [])
-  })
+  watch(
+    () => props.options,
+    (options) => {
+      nextTick(()=>{
+        if(treeRef.value){
+          props.data.forEach((key) => {
+            console.log(key)
+            treeRef.value.setChecked(key, true, false)
+          })
+        }
+      })
+    },
+    {
+      immediate: true,
+      deep: true
+    }
+  )
   const checkChange = () => {
-    const keys = treeRef.value.getCheckedKeys()
+    const keys = treeRef.value.getCheckedNodes().map(i => {
+      return i[props.nodeKey]
+    })
     emit('update:data', keys)
   }
 </script>
