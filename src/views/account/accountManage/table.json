@@ -4,26 +4,35 @@
       "type": "input",
       "label": "UUID"
     },
-    "roleName": { 
+    "realName": { 
       "type": "input",
-      "label": "角色名称",
+      "label": "姓名",
       "require": true
     },
-    "sysCode": { 
+    "account": { 
+      "type": "input",
+      "label": "账号",
+      "require": true
+    },
+    "mobile": { 
+      "type": "input",
+      "label": "电话",
+      "require": true
+    },
+    "email": {
+      "type": "input",
+      "label": "邮箱"
+    },
+    "roles": {
       "type": "select",
-      "label": "系统",
-      "format": "formatEnumVal",
-      "require": true
+      "label": "角色",
+      "props": {
+        "multiple": true
+      }
     },
-    "type": { 
+    "type": {
       "type": "select",
-      "label": "角色类型",
-      "require": true
-    },
-    "resourceCodes": {
-      "type": "tree",
-      "label": "角色权限",
-      "require": true
+      "label": "账号类型"
     },
     "remark": {
       "type": "textarea",
@@ -55,23 +64,26 @@
   },
   "table": [
     "uuid",
-    "sysCode",
+    "realName",
+    "account",
+    "mobile",
+    "roles",
     "type",
-    "roleName",
     "remark",
     "createdAt",
     "updatedAt"
   ],
   "form": [
-    "sysCode",
+    "realName",
+    "account",
+    "mobile",
+    "roles",
     "type",
-    "roleName",
-    "remark",
-    "resourceCodes"
+    "remark"
   ],
   "filter": [
     "keyword",
-    "sysCode"
+    "type"
   ],
   "options": {
     "type": [ "ADMIN&管理员", "TENEMENT&租户" ]
