@@ -10,14 +10,13 @@
 </template>
 <script>
 export default {
+  name: 'datePicker', // 日期选择器
   props: {
     data: {
       type: [String, Number, Date, Array],
       default: ''
     }
   },
-
-  methods: {},
 
   computed: {
     val: {

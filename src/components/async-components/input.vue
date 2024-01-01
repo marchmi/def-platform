@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+  name: 'input', // 文本输入框
   props: {
     data: {
       type: [String, Number],

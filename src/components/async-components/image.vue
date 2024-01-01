@@ -9,6 +9,7 @@
 </template>
 <script>
 export default {
+  name: 'image', // 图片组件
   props: {
     data: {
       type: [String, Number],

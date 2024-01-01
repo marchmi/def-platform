@@ -17,6 +17,7 @@
 </template>
 <script>
 export default {
+  name: 'checkbox', // 多选框
   props: {
     data: {
       type: [String, Array],
@@ -25,12 +26,12 @@ export default {
 
     labelKey: {
       type: [String, Number],
-      default: 'name'
+      default: 'value'
     },
 
     valueKey: {
       type: [String, Number],
-      default: 'code'
+      default: 'key'
     },
 
     options: {

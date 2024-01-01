@@ -7,6 +7,7 @@
  import {
   ElButton,
   ElInput,
+  ElRadioGroup,
   ElRadio,
   ElTable,
   ElTableColumn,
@@ -51,6 +52,7 @@ import 'element-plus/dist/index.css'
 const coms = [
   ElButton,
   ElInput,
+  ElRadioGroup,
   ElRadio,
   ElTable,
   ElTableColumn,

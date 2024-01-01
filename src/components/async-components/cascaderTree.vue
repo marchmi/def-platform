@@ -13,6 +13,7 @@
 </template>
 <script>
 export default {
+  name: 'cascader', // 级联选择器
   props: {
     data: {
       type: [String, Array],
@@ -37,8 +38,6 @@ export default {
       }
     }
   },
-
-  methods: {},
 
   computed: {
     val: {

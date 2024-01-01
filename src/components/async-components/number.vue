@@ -11,6 +11,7 @@
 <script>
 import { limitEnterNumeric } from '@/plugins/useRegexRule'
 export default {
+  name: 'number', // 数字输入框
   props: {
     data: {
       type: [String, Number],

@@ -1,42 +1,41 @@
 <template>
   <div>
-    <mi-select 
-      v-model="val" 
+    <mi-radio-group 
+      v-model="val"
       v-bind="$attrs"
       v-on="$attrs.events || {}"
-      style="width:100%"
     >
-      <mi-option
+      <mi-radio
         v-for="item in options"
         :key="item[labelKey]"
-        :label="item[labelKey]"
-        :value="item[valueKey]"
+        :label="item[valueKey]"
       >
-      </mi-option>
-    </mi-select>
+        {{item[labelKey]}}
+      </mi-radio>
+    </mi-radio-group>
   </div>
 </template>
 <script>
 export default {
-  name: 'select', // 下拉选择
+  name: 'radio', // 单选框
   props: {
     data: {
-      type: [Object, Array, String],
+      type: [String, Number],
       default: ''
     },
 
     labelKey: {
-      type: [String],
+      type: [String, Number],
       default: 'value'
     },
 
     valueKey: {
-      type: [String],
+      type: [String, Number],
       default: 'key'
     },
 
     options: {
-      type: [Array, Object],
+      type: [Array, String],
       default: () => {
         return []
       }
@@ -46,7 +45,7 @@ export default {
   computed: {
     val: {
       get () {
-        return this.data
+        return this.data || []
       },
       set (value) {
         this.$emit('update:data', value)

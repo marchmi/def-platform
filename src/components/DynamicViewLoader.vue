@@ -37,6 +37,7 @@ const componentView = {
   select: defineAsyncComponent(()=>import('./async-components/select')),
   cascader: defineAsyncComponent(()=>import('./async-components/cascaderTree')),
   checkbox: defineAsyncComponent(()=>import('./async-components/checkbox')),
+  radio: defineAsyncComponent(()=>import('./async-components/radio')),
   image: defineAsyncComponent(()=>import('./async-components/image')),
   imageUploader: defineAsyncComponent(()=>import('./async-components/imageUploader')),
   datePicker: defineAsyncComponent(()=>import('./async-components/datePicker')),

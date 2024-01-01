@@ -23,9 +23,10 @@
 <script>
 import { reactive } from 'vue'
 export default {
+  name: '图片上传',
   props: {
     data: {
-      type: [String,],
+      type: [String],
       default: ''
     }
   },

@@ -14,6 +14,7 @@
 </template>
 <script>
 export default {
+  name: 'textarea', // 多行文本
   props: {
     data: {
       type: [String],
